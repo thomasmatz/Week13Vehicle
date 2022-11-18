@@ -32,6 +32,6 @@ void Vehicle_C::Display_Info() const
 {
 	cout << "\nThis vehicle object has a make: ";
 	cout << manufacturer;
-	cout << "\n...and the year built is: ";
+	cout << "\n...and the vehicle year built is: ";
 	cout << yearBuilt;
 }
