@@ -21,22 +21,5 @@ public:
 private:
 	double gasTankCapacity;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif // !SUV_C_H
 

@@ -21,10 +21,11 @@ int Car_C::Get_NumDoors() const
 }
 void Car_C::Display_Info() const
 {
-	cout << "\nThe make of the car is: ";
-	cout << Get_Mfr();
-	cout << "\nThe year built of the car is: ";
-	cout << Get_YearB();
+	//cout << "\nThe make of the car is: ";
+	//cout << Get_Mfr();
+	//cout << "\nThe year built of the car is: ";
+	//cout << Get_YearB();
+	Vehicle_C::Display_Info();
 	cout << "\n...and the number of doors is: ";
 	cout << numDoors;
 }

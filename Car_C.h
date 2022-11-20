@@ -21,14 +21,5 @@ public:
 	void Display_Info() const;
 };
 
-
-
-
-
-
-
-
-
-
 #endif // !Car_C_H
 

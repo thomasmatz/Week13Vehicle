@@ -20,12 +20,13 @@ double SUV_C::Get_GasTankCapacity() const
 }
 void SUV_C::Display_Info() const
 {
-	cout << "\nThe make of the SUV is: ";
+	/*cout << "\nThe make of the SUV is: ";
 	cout << Get_Mfr();
 	cout << "\nThe year built of the SUV is: ";
 	cout << Get_YearB();
 	cout << "\nThe number of doors of the SUV are: ";
-	cout << Get_NumDoors();
+	cout << Get_NumDoors();*/
+	Car_C::Display_Info();
 	cout << "\nThe gas tank capacity of the SUV is: ";
 	cout << gasTankCapacity;
 }
