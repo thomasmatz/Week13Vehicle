@@ -9,6 +9,7 @@ The display class is made virtual.
 #define VehicleVirtual_C_H
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ public:
 	string Get_Mfr() const;
 	string Get_YearB() const;
 	virtual void Display_Info() const;
+	virtual void Set_Info();
 
 private:
 	string manufacturer;

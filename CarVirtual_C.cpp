@@ -34,3 +34,15 @@ void CarVirtual_C::Display_Info() const
 	cout << "\n...and the number of doors is: ";
 	cout << numDoors;
 }
+void CarVirtual_C::Set_Info()
+{
+	VehicleVirtual_C::Set_Info();
+
+	int numDoors;
+
+	cout << "\nEnter the number of doors of the car>";
+	cin >> numDoors;
+	cin.ignore();
+
+	Set_NumDoors(numDoors);
+}

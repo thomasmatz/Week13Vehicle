@@ -33,3 +33,11 @@ void SUVVirtual_C::Display_Info() const
 	cout << "\nThe gas tank capacity of the SUV is: ";
 	cout << gasTankCapacity;
 }
+void SUVVirtual_C::Set_Info()
+{
+	CarVirtual_C::Set_Info();
+
+	cout << "\nEnter the gas tank capacity of the SUV.> ";
+	cin >> gasTankCapacity;
+	Set_GasTankCapacity(gasTankCapacity);
+}

@@ -19,6 +19,7 @@ public:
 	int Get_NumDoors() const;//the  const keyword tells the compiler that the
 	//calling object is a constant (so do not allow changes to its data)
 	virtual void Display_Info() const;
+	virtual void Set_Info();
 };
 
 #endif

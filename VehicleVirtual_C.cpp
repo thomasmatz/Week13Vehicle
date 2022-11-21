@@ -37,3 +37,14 @@ void VehicleVirtual_C::Display_Info() const
 	cout << "\n...and the vehicle year built is: ";
 	cout << Get_YearB();
 }
+void VehicleVirtual_C::Set_Info()
+{
+	string mfr, yrBlt;
+	cout << "\nEnter the manufacturer of the vehicle>";
+	getline(cin, mfr);
+	cout << "\nEnter the year built of the vehicle>";
+	getline(cin, yrBlt);
+	
+	Set_Mfr(mfr);
+	Set_YearB(yrBlt);
+}

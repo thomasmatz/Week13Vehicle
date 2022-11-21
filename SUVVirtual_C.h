@@ -16,6 +16,7 @@ public:
 	void Set_GasTankCapacity(double);
 	double Get_GasTankCapacity() const;
 	virtual void Display_Info() const;
+	virtual void Set_Info();
 
 private:
 	double gasTankCapacity;

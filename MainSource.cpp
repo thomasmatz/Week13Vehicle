@@ -12,7 +12,6 @@ CIS 1202.201
 #include <iostream>
 
 void Polymorphism_Routine();
-void Output_To_Terminal(VehicleVirtual_C*);
 
 int main()
 {
@@ -68,6 +67,7 @@ int main()
 	cout << " program again...demonstrating polymorphism?";
 	cout << "\n Enter 1 if yes, 0 if no.> ";
 	cin >> response;
+	cin.ignore();
 
 	if (response) Polymorphism_Routine();
 
@@ -75,73 +75,58 @@ int main()
 	system("pause");
 	return(0);
 }
+/*
+************************************************************
+**************************************************************
+**************************************************************
+*/
+
 void Polymorphism_Routine()
 {
 	//Polymorphism requires the use of virtual functions
 	//  and pointers to class objects (or the use of 
 	// a reference parameter in the function)
-	string manufacturer, yearBuilt;
-	VehicleVirtual_C *autoBasic = new VehicleVirtual_C;
+	
+	//There is only one pointer variable necessary
+	// for the polymorphism approach.
+	// It is of Class VehicleVirtual
+
+	VehicleVirtual_C *auto_ptr = new VehicleVirtual_C;
+	
 	cout << "\n\t\tThis program will demonstrate";
-	cout << " an overridden function,\n\t'Display_Info', in";
+	cout << " two overridden functions,\n\t'Set_Info' and 'Display_Info', in";
 	cout << " the child and the grandchild classes.";
-	cout << "\n\nEnter the make of the vehicle> ";
-	cin.ignore();
-	getline(cin, manufacturer);
-	cout << "\nEnter the year built of the vehicle>";
-	getline(cin, yearBuilt);
-	cout << "\n\t...Declaring a Vehicle class object.";
-
-	autoBasic->Set_Mfr(manufacturer);
-	autoBasic->Set_YearB(yearBuilt);
+	cout << "\n\t...Binding to a Vehicle class object.";
+	auto_ptr->Set_Info();//Set_Info is a virtual function
+		//auto_ptr is a Vehicle class pointer variable
 	
-	Output_To_Terminal(autoBasic);
+	//Output_To_Terminal(auto_ptr);
+	auto_ptr->Display_Info();
 
-	int numDoors;
-	CarVirtual_C *autoValue=new CarVirtual_C;
-	cout << "\n\nEnter the make of the car> ";
-	getline(cin, manufacturer);
-	cout << "\nEnter the year built of the car>";
-	getline(cin, yearBuilt);
-	cout << "\nEnter the number of doors of the car>";
-	cin >> numDoors;
-	cout << "\n\t...Declaring and setting a Car class object.";
-
-	autoValue->Set_Mfr(manufacturer);
-	autoValue->Set_YearB(yearBuilt);
-	autoValue->Set_NumDoors(numDoors);
-	//call display
-	Output_To_Terminal(autoValue);
-
-	double gasTankCapacity;
-	SUVVirtual_C *autoBigSporty=new SUVVirtual_C;
-
-	cout << "\n\nEnter the make of the SUV.> ";
-	cin.ignore();
-	getline(cin, manufacturer);
-	cout << "\nEnter the year built of the SUV.> ";
-	getline(cin, yearBuilt);
-	cout << "\nEnter the number of doors of the SUV.> ";
-	cin >> numDoors;
-	cout << "\nEnter the gas tank capacity of the SUV.> ";
-	cin >> gasTankCapacity;
-	cout << "\n\t...Declaring and setting an SUV class object.";
-
-	autoBigSporty->Set_Mfr(manufacturer);
-	autoBigSporty->Set_YearB(yearBuilt);
-	autoBigSporty->Set_NumDoors(numDoors);
-	autoBigSporty->Set_GasTankCapacity(gasTankCapacity);
+	auto_ptr = new CarVirtual_C;
+	//the VehicleVirtual object pointer now references
+	// a CarVirtual object
+	cout << "\n\t...Binding to a Car class object.";
 	
-	Output_To_Terminal(autoBigSporty);
+	auto_ptr->Set_Info();//Set_Info is a virtual function
+		//auto_ptr is a Vehicle class pointer variable
 
-	delete autoBasic;
-	delete autoValue;
-	delete autoBigSporty;
+	//Output_To_Terminal(auto_ptr);
+	auto_ptr->Display_Info();
+
+	auto_ptr = new SUVVirtual_C;
+
+	//the VehicleVirtual object pointer now references
+	// an SUVVirtual object
+	
+	cout << "\n\t...Binding to an SUV class object.";
+
+	auto_ptr->Set_Info();//Set_Info is a virtual function
+		//auto_ptr is a Vehicle class pointer variable
+
+	//Output_To_Terminal(auto_ptr);
+	auto_ptr->Display_Info();
+
+	delete auto_ptr;	
 }
-void Output_To_Terminal(VehicleVirtual_C *vehObject)
-{
-	//Display_Info is a virtual function
-	//binding of the object parameter to this function
-	// will occur at runtime.
-	vehObject->Display_Info();
-}
+
